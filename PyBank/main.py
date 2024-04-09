@@ -87,3 +87,19 @@ with open(output_path, 'w', newline = '') as file:
     csvwriter.writerow(["Greatest Decrease in Profits", f"{max_decrease_date}:{max_decrease}"])
 
 print(f"Results have been written to {output_path}")
+
+output_path = "/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyBank/Analysis/output.txt"  # Specify the path where you want to save the output text file
+
+# Writing results to text file
+
+with open(output_path, 'w') as file:
+
+    file.write("Financial Analysis\n")
+    file.write("----------------------------\n")
+    file.write(f"Total Months: {All_months}\n")
+    file.write(f"Total: ${Net}\n")
+    file.write(f"Average Change: ${Avg_change:.2f}\n")
+    file.write(f"Greatest Increase in Profits: {max_increase_date} (${max_increase})\n")
+    file.write(f"Greatest Decrease in Profits: {max_decrease_date} (${max_decrease})\n")
+
+print(f"Results have been written to {output_path}")
