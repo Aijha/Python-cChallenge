@@ -27,6 +27,19 @@ with open(electcsvpath) as csvfile:
 # def print_election_results(election_results):
     
 def electreader(votes_data):
+
+    #Set variables
+    
+    total_votes = 0
+
+    votes_per_candidate = [0,0,0]
+
+    candidate_list = []
+
+    vote_percentages = []
+
+    print_results = []
+
     for row in votes_data:
         total_votes = 0
         candidates = [dict(int)]
@@ -71,17 +84,6 @@ def main():
     print(f"Winner: {winner}")
     print("-------------------------")
 
-#Set variables
-    
-    total_votes = 0
-
-    votes_per_candidate = [0,0,0]
-
-    candidate_list = []
-
-    vote_percentages = []
-
-    print_results = []
 
 
 # Complete list of candidates who received votes
@@ -143,9 +145,9 @@ def main():
 
 #  Output to TXT File
 
-output_path = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/print_results.txt")
+# output_path = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/print_results.txt")
 
-with open(output_path, 'w') as file:
+# with open(output_path, 'w') as file:
 
-    # for txt in electreader:
-        file.write(f"{txt}\n")
+#     # for txt in electreader:
+#         file.write(f"{txt}\n")
