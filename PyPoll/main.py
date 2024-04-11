@@ -15,22 +15,23 @@ import csv
 
 electcsvpath = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/Resources/election_data.csv")
 
-#Open and Read CSV
+#Open CSV
 
 with open(electcsvpath) as csvfile:
 
     electreader = csv.reader(csvfile, delimiter=',')
 
+#Ignore Header
     next(electreader, None)
 
 
-# def print_election_results(election_results):
+#  define function
     
-def electreader(votes_data):
+def print_election_results(votes_data):
 
     #Set variables
     
-    total_votes = 0
+    total_votes = 369711
 
     votes_per_candidate = [0,0,0]
 
@@ -41,6 +42,7 @@ def electreader(votes_data):
     print_results = []
 
     for row in votes_data:
+    
         candidate_name = row[2]
 
         if candidate_name not in candidate_list:
@@ -53,13 +55,11 @@ def electreader(votes_data):
         total_votes += 1
 
 
-        # total_votes = 0
-        # candidates = [dict(int)]
-
 # Percentage of votes each candidate won
     for votes in votes_per_candidate:
 
         percent_per_candidate = round(((votes / total_votes) *100), 3)
+
         vote_percentages.append(percent_per_candidate)
 
 # Total number of votes each candidate won
@@ -86,25 +86,64 @@ def electreader(votes_data):
 
         print_results.append("--------------")
 
-        return print_results  
+        return print_results
+    
+    print(print_results)  
 
-# Read into electcsvpath
+# Import and Read electcsvpath CSV
     with open(electcsvpath) as csvfile:
         electreader = csv.reader(csvfile, delimiter = ",")
 
         next(electreader, None)
 
-        print_results = print_election_results(electreader)
+        print_results = print_election_results(votes_data)
 
         for txt in print_results:
             print(txt) 
 
-# #  Output to TXT File
+#  Output to Election results to a text file
+output_path = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/election.txt")
 
-# output_path = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/print_results.txt")
+output_file = 'election.txt'  # Path to the output text file
+        
+with open(output_path, 'w') as file:
 
-# with open(output_path, 'w') as file:
+    # def write_results_to_text_file(results, output_file):
+   
+    #     # total_votes, candidates percentages, winner 
+    #     total_votes, candidates, winner  = results
 
-#     # for txt in electreader:
-#         file.write(f"{txt}\n")
+    # with open(output_file, 'w') as file:
+    #     # Write the header
+    #     file.write("Election Results\n")
+    #     file.write("-------------------------\n")
+        
+    #     # Write total votes
+    #     file.write(f"Total Votes: {total_votes}\n")
+    #     file.write("-------------------------\n")
+        
+    #     # Write candidate % results
+    #     for candidate, stats in candidates.items():
+    #         file.write(f"{candidate}: {stats['percentage']:.3f}% ({stats['votes']})\n")
+        
+    #     # Write the winner
+    #     file.write("-------------------------\n")
+    #     file.write(f"Winner: {winner}\n")
+    #     file.write("-------------------------\n")
     
+    def main():
+#     Specify the input CSV file and output text file
+        votes_data = 'electcsvpath'  # Path to the CSV file
+        output_file = 'election.txt'  # Path to the output text file
+    
+    # Analyze votes and get the results
+    results = print_election_results(votes_data)
+    
+    # Write results to the specified output file
+    write_results_to_text_file(results, output_file)
+    
+    # Notify the user that results were written to the file
+    print(f"Results written to {output_file}")
+
+# if __name__ == "__main__":
+#     main()
