@@ -41,64 +41,20 @@ def electreader(votes_data):
     print_results = []
 
     for row in votes_data:
-        total_votes = 0
-        candidates = [dict(int)]
-
-    with open(votes_data, 'r') as file:
-        electreader = csv.reader(file)
-        
-        # Skip header
-        next(electreader)
-        
-        # Iterate through each row in the CSV file
-        for row in electreader:
-            total_votes += 1
-            candidate_name = row[2]
-            
-            # Count votes for each candidate
-            candidates[candidate_name] += 1
-    
-
-    for candidate, votes in candidates.items():
-        percentage = (votes / total_votes) * 100
-        candidates[candidate] = {'votes': votes, 'percentage': percentage}
-
-    winner = max(candidates, key=lambda x: candidates[x]['votes'])
-
-    return total_votes, dict(candidates), winner
-
-def main():
-    votes_file = "/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/Resources/election_data.csv"  # Change this to the name of your CSV file
-    
-    total_votes, candidates, winner = analyze_votes(votes_file)
-    
-    print("Election Results")
-    print("-------------------------")
-    print(f"Total Votes: {total_votes}")
-    print("-------------------------")
-    
-    for candidate, stats in candidates.items():
-        print(f"{candidate}: {stats['percentage']:.3f}% ({stats['votes']})")
-    
-    print("-------------------------")
-    print(f"Winner: {winner}")
-    print("-------------------------")
-
-
-
-# Complete list of candidates who received votes
-    for row in electreader:
-
         candidate_name = row[2]
+
         if candidate_name not in candidate_list:
             candidate_list.append(candidate_name)
-
+        
         candidate_position = candidate_list.index(candidate_name)
 
         votes_per_candidate[candidate_position] += 1
 
-# The total number of votes cast
         total_votes += 1
+
+
+        # total_votes = 0
+        # candidates = [dict(int)]
 
 # Percentage of votes each candidate won
     for votes in votes_per_candidate:
@@ -143,7 +99,7 @@ def main():
         for txt in print_results:
             print(txt) 
 
-#  Output to TXT File
+# #  Output to TXT File
 
 # output_path = os.path.join("/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/print_results.txt")
 
@@ -151,3 +107,61 @@ def main():
 
 #     # for txt in electreader:
 #         file.write(f"{txt}\n")
+    
+
+#     with open(votes_data, 'r') as file:
+#         electreader = csv.reader(file)
+        
+#         # Skip header
+#         next(electreader)
+        
+#         # Iterate through each row in the CSV file
+#         for row in electreader:
+#             total_votes += 1
+#             candidate_name = row[2]
+            
+#             # Count votes for each candidate
+#             candidates[candidate_name] += 1
+    
+
+#     for candidate, votes in candidates.items():
+#         percentage = (votes / total_votes) * 100
+#         candidates[candidate] = {'votes': votes, 'percentage': percentage}
+
+#     winner = max(candidates, key=lambda x: candidates[x]['votes'])
+
+#     return total_votes, dict(candidates), winner
+
+# def main():
+#     votes_file = "/Users/aijhasymone/Desktop/ClassFolder/Python-cChallenge/PyPoll/Resources/election_data.csv"  # Change this to the name of your CSV file
+    
+#     total_votes, candidates, winner = analyze_votes(votes_file)
+    
+#     print("Election Results")
+#     print("-------------------------")
+#     print(f"Total Votes: {total_votes}")
+#     print("-------------------------")
+    
+#     for candidate, stats in candidates.items():
+#         print(f"{candidate}: {stats['percentage']:.3f}% ({stats['votes']})")
+    
+#     print("-------------------------")
+#     print(f"Winner: {winner}")
+#     print("-------------------------")
+
+
+
+# # Complete list of candidates who received votes
+#     for row in electreader:
+
+#         candidate_name = row[2]
+#         if candidate_name not in candidate_list:
+#             candidate_list.append(candidate_name)
+
+#         candidate_position = candidate_list.index(candidate_name)
+
+#         votes_per_candidate[candidate_position] += 1
+
+# # The total number of votes cast
+#         total_votes += 1
+
